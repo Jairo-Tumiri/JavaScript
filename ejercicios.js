@@ -260,6 +260,8 @@ console.log("https://github.com/makeitrealcamp/ejercicios-javascript")
 
 /* ============== ADN =============== */
 
+    // SE USO UN SWITCH
+
 // const transcribir = (string) =>{
 //     let transcribido = ""
 //     for (const valor of string) {
@@ -288,17 +290,203 @@ console.log("https://github.com/makeitrealcamp/ejercicios-javascript")
 // console.log(transcribir("ACGT")) // "UGCA"
 // console.log(transcribir("ACGTGGTCTTAA")) // "UGCACCAGAAUU"
 
-let transcribido = "";
-let object = "ACGT";
+    // SE USO UN OBJETO COMO CONDIONAL
 
-const valores = {
-    G:"C",
-    C:"G",
-    T:"A",
-    A:"U"
-}
+// const transcribir = (strong) => {
+//     let transcribido = "";
+//     const valores = {
+//         G:"C",
+//         C:"G",
+//         T:"A",
+//         A:"U"
+//     }
+//     for (const iterator of strong) {
+//         transcribido = transcribido+valores[`${iterator}`]
+//     }
+//     return transcribido
+// } 
 
-for (const iterator of object) {
-    transcribido = transcribido+valores[`${iterator}`]
-}
-console.log(transcribido)
+// // código de prueba
+// console.log(transcribir("ACGT")) // "UGCA"
+// console.log(transcribir("ACGTGGTCTTAA")) // "UGCACCAGAAUU"
+
+/* =============== Capitalizar palabra ========== */
+
+// const capitalizar = (string) => {
+
+//     // SE USA TERNARIAS / CONDICINAL
+
+//     (string !== "")
+//     ? string = string[0].toUpperCase() + string.slice(1)
+//     : string = string
+    
+//     return string
+// }
+
+// // código de prueba
+// console.log(capitalizar("hola mundo")) // "Hola Mundo"
+// console.log(capitalizar("make it real")) // "Make It Real"
+// console.log(capitalizar("")) // ""
+
+/* =============== Encontrar el número maximo ============= */
+
+// const max = (array) => {
+//     let elMax = 0;
+//     for (const iterator of array) {
+//         if (elMax < iterator) {
+//             elMax = iterator
+//         }
+//     }
+//     return elMax
+// }
+
+// // código de prueba
+// console.log(max([3, 9, 6])) // 9
+// console.log(max([67, 35, 54, 26])) // 67
+// console.log(max([5, 9, 2, 4, 5, 7])) // 9
+
+/* ================ El minimo ================== */
+
+// const mini = (array) => {
+//     let elmin = array[0];
+//     let elmax = array[0]
+//     for (const valor of array) {
+//         if (elmin > valor){
+//             elmin = valor
+//         }
+//         if(elmax < valor){
+//             elmax = valor
+//         }
+//     }
+//     console.log(`El minimo es: ${elmin}`)
+//     console.log(`El mayor es: ${elmax}`)
+// }
+
+// // código de prueba
+// console.log(mini([3, 9, 6])) // 3
+// console.log(mini([67, 35, 54, 26])) // 26
+// console.log(mini([5, 9, 2, 4, 5, 7])) // 2
+
+/* ============ Generar contraseña ============== */
+
+// const password =(string)=>{
+//     let nuevaContraseña = ""
+//     const valores = {
+//         a: "4",
+//         e: "3",
+//         i: "1",
+//         o: "0"
+//     }
+//     for (const valor of string) {
+//         (valores[`${valor}`])
+//         ? nuevaContraseña = nuevaContraseña + valores[`${valor}`]
+//         : nuevaContraseña = nuevaContraseña + valor
+//     }
+
+//     return nuevaContraseña
+// }
+
+// // código de prueba
+// console.log(password("hola")) // "h0l4"
+// console.log(password("esta es una prueba")) // "3st43sun4pru3b4"
+// console.log(password("")) // ""
+
+/* ============== pares  ========================== */
+
+// const pares = (array) =>{
+//     let i = 0;
+//     let array2 = [];
+//     for (const valor of array) {
+//         if(valor%2 === 0){
+//             array2[i] = valor
+//             i++
+//         }
+//     }
+//     return array2
+// }
+
+// // código de prueba
+// console.log(pares([1, 2, 3, 4, 5, 6])) // [2, 4, 6]
+// console.log(pares([])) // []
+
+/* ==============  Encontrar posiciones de numeros pares ===== */
+
+// const posiciones = (array) => {
+//     let array2 = []
+//     let i = 0
+//     let a = 0
+//     for (const valor of array) {
+//         if (valor%2===0) {
+//             array2[a] = i
+//             a++
+//         }
+//         i++ 
+//     }
+//     return array2
+
+// }
+// // código de prueba
+// console.log(posiciones([1, 2, 3, 4, 5, 6])) // [1, 3, 5]
+// console.log(posiciones([])) // []
+
+/* =============== Duplicar elementos de un arreglo ======= */
+
+// const duplicar = (array) => {
+//     let array2 = []
+//     let i = 0
+//     for (const valor of array) {
+//         array2[i] = valor * 2 
+//         i++
+//     }
+//     return array2
+// }
+
+// // código de prueba
+// console.log(duplicar([1, 2, 3])) // [2, 4, 6]
+// console.log(duplicar([])) // []
+
+/* ============ Encontrar palabras que empiecen por "a" ============*/
+
+// const empiezanConA = (array) =>{
+//     let array2 = [];
+//     let i = 0;
+
+//     for (const posicion of array) {
+//         if (posicion[0] === "A" || posicion[0] === "a") {
+//             array2[i] = posicion
+//             i++
+//         }
+//     }
+
+//     return array2
+// }
+
+// // código de prueba
+// console.log(empiezanConA(["beta", "alfa", "Arbol", "gama"])) // ["alfa", "Arbol"]
+// console.log(empiezanConA(["beta", "delta", "gama"])) // []
+// console.log(empiezanConA([])) // []
+
+/* ============= Encontrar palabras que terminan en "s" =====*/
+
+// const terminanConS= (array) =>{
+//     let array2 = [];
+//     let i = 0;
+    
+//     for (const valor of array) {
+//         if (valor[(valor.length - 1)] === "s" || valor[(valor.length - 1)] === "S") {
+//             array2[i] = valor; 
+//             i++;
+//         }
+//     }
+//     return array2
+// }
+
+
+// // código de prueba
+// console.log(terminanConS(["pruebas", "arroz", "árbol", "tokens"])) // ["pruebas", "tokens"]
+// console.log(terminanConS(["beta", "delta", "gama"])) // []
+// console.log(terminanConS([])) // []
+
+
+ 
+ 
