@@ -487,6 +487,144 @@ console.log("https://github.com/makeitrealcamp/ejercicios-javascript")
 // console.log(terminanConS(["beta", "delta", "gama"])) // []
 // console.log(terminanConS([])) // []
 
+/* ========== iMPRIMIR UNA mATRIZ ========= */
 
- 
- 
+// const imprimirMatriz = (matriz) =>{
+//     for (let i = 0; i < matriz.length; i++) {
+//         for (let a = 0; a < matriz.length; a++) {
+//             console.log(matriz[i][a])
+//         }
+//     }
+// } 
+
+// // código de prueba
+// console.log(imprimirMatriz([
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9]
+//   ]))
+
+/* ========= traducir números a palabras ============ */
+
+// const numerosAPalabras = (array) =>{
+//     let array2 = [];
+//     let i = 0;
+//     const objeto = {
+//         1: "uno",
+//         2: "dos",
+//         3: "tres",
+//         4: "cuatro",
+//         5: "cinco",
+//         6: "seis",
+//         7: "siete",
+//         8: "ocho",
+//         9: "nueve",
+//         0: "cero"
+//     }
+
+//     for (const valor of array) {
+//         array2[i] = objeto[valor]
+//         i++
+//     }
+//     return array2
+// }
+
+// // código de prueba
+// console.log(numerosAPalabras([0, 1, 2, 3, 4])) // ["cero", "uno", "dos", "tres", "cuatro"]
+// console.log(numerosAPalabras([5, 6, 7, 8, 9])) // ["cinco", "seis", "siete", "ocho", "nueve"]
+
+/* ========= numeroAPalabra =============== */
+
+// const numeroAPalabra = (array) => {
+//     let array2 = [];
+//     let i = 0;
+//     const objeto = {
+//         uno: 1, 
+//         dos: 2, 
+//         tres: 3, 
+//         cuatro: 4, 
+//         cinco: 5, 
+//         seis: 6, 
+//         siete: 7, 
+//         ocho: 8, 
+//         nueve: 9, 
+//         cero: 0 
+//     }
+//     for (const valor of array) {
+//         // console.log(valor)
+//         (objeto[valor] !== undefined)
+//         ? array2[i] = objeto[valor] 
+//         : array2[i] = -1
+//         i++
+//     }
+//     return array2
+// }
+
+// // código de prueba
+// console.log(numeroAPalabra(["cero", "uno", "dos", "tres", "what?", "cuatro"])) // [0, 1, 2, 3, -1, 4]
+// console.log(numeroAPalabra(["cinco", "seis", "siete", "ocho", "nueve"])) // [5, 6, 7, 8, 9]
+
+/* ============ Numero de asteriscos en un arreglo ==================*/
+
+// const numAsteriscos = (array) =>{
+//     let a = 0
+
+//     for (const valor of array) {
+//         (valor === "*")
+//         ? a++
+//         : ""
+//     }
+//     return a
+// }
+
+// // código de prueba
+// console.log(numAsteriscos(['', '*', '', '*'])) // 2
+// console.log(numAsteriscos(['*', '*', '*'])) // 3
+// console.log(numAsteriscos([])) // 0
+
+/* ========== Número de asteriscos en una matriz ====== */
+
+// const numAsteriscos = (matriz) =>{
+//     let i = 0;
+
+//     for (let a = 0; a < matriz.length; a++) {
+//         for (let b = 0; b < matriz.length; b++) {
+//             (matriz[a][b] === "*")
+//             ? i++
+//             : ""            
+//         }        
+//     }
+//     return i
+// }
+
+// // código de prueba
+// console.log(numAsteriscos([
+//     ['*', '', '*'],
+//     ['', '*', ''],
+//     ['*', '', '*']
+//   ]))
+//   // 5
+
+/* =========  Distancia entre dos strings ============*/
+
+// const distancia = (string1, string2) => {
+
+//     let longitud = "";
+//     let contador = 0;
+//     string1.length > string2.length
+//     ? longitud = string1
+//     : longitud = string2
+
+//     for (let i = 0; i < longitud.length; i++) {
+//             string1[i] === string2[i]
+//             ? contador += 0
+//             : contador += 1
+//     }
+//     return contador
+// }
+
+// // código de prueba
+// console.log(distancia("hola", "hola")) // 0
+// console.log(distancia("sol", "tol")) // 1
+// console.log(distancia("carro", "correr")) // 3
+// console.log(distancia("arroyo", "arrollo"))
