@@ -38,14 +38,6 @@ igualdad. (Ej. “Hola” y “HOLA” no son iguales) */
 
 
 
-
-
-
-
-
-
-
-
 /* Aspectos a incluir:
 Archivo HTML y Archivo JS, referenciado en el HTML por etiqueta <script src="js/miarchivo.js"></script>, que incluya
  la definición de un algoritmo en JavaScript que emplee instrucciones condicionales.
