@@ -371,8 +371,6 @@ eliminar("Lorem Ipsum is simply dummy text of the printing and typesetting indus
 // convercion(0,"C")
 
 
-
-
 /* ====================================================================================================*/
 
 /* 15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
@@ -382,42 +380,33 @@ const binario = (numero = undefined, base = undefined) =>{
   if (!base) return console.warn("La base esta vacia");
   if (typeof numero !== "number") return console.warn(`El tipo de dato no es un numero`);
   if (typeof base !== "number") return console.warn(`El tipo de base no es un numero`);
- 
-    let tem = numero;
-    let bin = [];
 
+  let tem = 0;
+
+  if (base === 2){
+    numero.toString().split("").reverse().forEach((element, index) => { 
+      tem += (parseInt(element) * Math.pow(2,index));
+    });
+    return console.log(tem)
+
+  }else if(base === 10){
+    tem = numero;
+    let bin = [];
     for(let i = 0; i < numero; i++){
       bin[i] = (tem % 2)
       tem = Math.trunc(tem / 2)
       if ((tem / 2) === 0) {
-        break
+        break;
       }
-      console.log(tem)
-      
     }
-    
-    console.log(bin)
+    return console.log(bin.join(""))
+  }else{
+    return console.warn("solo se acepta base 2 y 10")
+  }
 
-  // let tem = 0;
-  // if (base === 2){
-  //   numero.toString().split("").reverse().forEach((element, index) => { 
-  //     tem += parseInt(element) * Math.pow(2,index);
-  //   });
-  // }else if(base === 10){
-  //   let bin = [];
-  //   for(let i = 0; i > 10; i++){
-  //     bin[i] = (numero % 2)
-
-  //     console.log(numero % 2)
-  //   }
-  // }else{
-  //   return console.warn("solo se acepta base 2 y 10")
-  // }
-
-  return console.log(bin)
 }
 
-binario(200000,10)
+binario(90,10)
 
 
 
