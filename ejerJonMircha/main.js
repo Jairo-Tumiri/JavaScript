@@ -1,5 +1,5 @@
 console.clear()
-/* 
+/*
 1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
 */
 
@@ -44,7 +44,7 @@ console.clear()
 //     return dav
 // }
 
-// const recortar = (string, numero) => 
+// const recortar = (string, numero) =>
 // (!string || !numero)
 // ? console.warn("la cadena esta vacia")
 // : console.log(string.slice(0,numero));
@@ -120,7 +120,7 @@ console.clear()
 // const reversa = (string = "") =>{
 //   if (!string) {
 //     return console.warn("La cadena de texto esta vacia")
-//   }else{   
+//   }else{
 //     let arr = string.split("").reverse();
 //     let str = "";
 //     for (const valor of arr) {
@@ -375,41 +375,55 @@ eliminar("Lorem Ipsum is simply dummy text of the printing and typesetting indus
 
 /* 15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
  */
-const binario = (numero = undefined, base = undefined) =>{
-  if (!numero) return console.warn("El numero esta vacio");
-  if (!base) return console.warn("La base esta vacia");
-  if (typeof numero !== "number") return console.warn(`El tipo de dato no es un numero`);
-  if (typeof base !== "number") return console.warn(`El tipo de base no es un numero`);
+// const binario = (numero = undefined, base = undefined) =>{
+//   if (!numero) return console.warn("El numero esta vacio");
+//   if (!base) return console.warn("La base esta vacia");
+//   if (typeof numero !== "number") return console.warn(`El tipo de dato no es un numero`);
+//   if (typeof base !== "number") return console.warn(`El tipo de base no es un numero`);
 
-  let tem = 0;
+//   let tem = 0;
 
-  if (base === 2){
-    numero.toString().split("").reverse().forEach((element, index) => { 
-      tem += (parseInt(element) * Math.pow(2,index));
-    });
-    return console.log(tem)
+//   if (base === 2){
+//     numero.toString().split("").reverse().forEach((element, index) => {
+//       tem += (parseInt(element) * Math.pow(2,index));
+//     });
+//     return console.log(tem)
 
-  }else if(base === 10){
-    tem = numero;
-    let bin = [];
-    for(let i = 0; i < numero; i++){
-      bin[i] = (tem % 2)
-      tem = Math.trunc(tem / 2)
-      if ((tem / 2) === 0) {
-        break;
-      }
-    }
-    return console.log(bin.join(""))
-  }else{
-    return console.warn("solo se acepta base 2 y 10")
-  }
+//   }else if(base === 10){
+//     tem = numero;
+//     let bin = [];
+//     for(let i = 0; i < numero; i++){
+//       bin[i] = (tem % 2)
+//       tem = Math.trunc(tem / 2)
+//       if ((tem / 2) === 0) {
+//         break;
+//       }
+//     }
+//     return console.log(bin.reverse().join(""))
+//   }else{
+//     return console.warn("solo se acepta base 2 y 10")
+//   }
 
-}
+// }
 
-binario(90,10)
+// binario(1110001001,2)
 
 
 
+// const binario = (numero = undefined, base = undefined) =>{
+//   if (numero === undefined) return console.warn("El numero esta vacio");
+//   if (typeof numero !== "number") return console.warn(`El tipo de dato no es un numero`);
+//   if (base === undefined) return console.warn("La base esta vacia");
+//   if (typeof base !== "number") return console.warn(`El tipo de base no es un numero`);
+
+//   if(base === 2){
+//     return console.log(`${numero} base ${base} = ${parseInt(numero,base)} base 10`)
+//   }else if(base === 10){
+//     return console.log(`${numero} base ${base} = ${numero.toString(2)} base 2`)
+//   }
+// }
+
+// binario(4,10)
 
 
 /* ====================================================================================================*/
@@ -417,9 +431,207 @@ binario(90,10)
 /* 16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800. */
 
 
+// const montoFinal = (monto = undefined, dct = undefined) =>{
+//   if (!monto) return console.warn("la cantidad del monto esta vacia")
+//   if (typeof monto !== "number") return console.warn("la cantidad del monto NO es un numero")
+//   if (!dct) return console.warn("la cantidad del descuento esta vacia")
+//   if (typeof dct !== "number") return console.warn("la cantidad del descuento No es un numero")
+//   if (monto < 0 || dct < 0) return console.warn("la cantidad del monto o descuento no puede ser negativo, ni 0")
+
+//   return console.log(monto - (monto * (dct / 100)))
+// }
+
+// montoFinal(1000,20)
+
 
 
 
 /* ====================================================================================================*/
 
 /* 17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020). */
+
+
+// const fecha = (anio = undefined) => {
+//   const hoy = new Date().getFullYear();
+//   const antes = anio.getFullYear()
+
+//   return console.log(`La cantidad de años que pasaron fueron ${hoy - antes}`)
+// }
+
+// fecha(new Date(1984, 4, 23))
+
+
+// const calcularAnios = (fecha = undefined) => {
+//   if (fecha === undefined) return console.warn("No ingresaste la fecha");
+//   if (!fecha instanceof Date) return console.error("El valor que ingresaste no es una fecha válida");
+
+//   let hoyMenosFecha = new Date().getTime() - fecha.getTime(),
+//   aniosEnMs = 1000 * 60 * 60 * 24 * 365;
+//   aniosHumanos = Math.floor(hoyMenosFecha / aniosEnMs);
+
+//   return (Math.sign(aniosHumanos) === -1)
+//     ? console.info(`Faltan ${Math.abs(aniosHumanos)} años para el ${fecha.getFullYear()}.`)
+//     : (Math.sign(aniosHumanos) === 1)
+//       ? console.info(`Han pasado ${aniosHumanos} años, desde ${fecha.getFullYear()}.`)
+//       : console.info(`Estamos en el año actual ${fecha.getFullYear()}.`)
+// }
+
+// calcularAnios(new Date(1984, 4, 23))
+
+
+
+
+/* ====================================================================================================*/
+
+/* 18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5. */
+
+
+
+
+
+
+
+
+
+
+/* ====================================================================================================*/
+
+/* 19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero. */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====================================================================================================*/
+
+/* 20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero. */
+
+
+
+
+
+
+/* ====================================================================================================*/
+
+/* 21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25]. */
+
+
+
+
+
+
+
+
+/* ====================================================================================================*/
+
+/* 22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60]. */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====================================================================================================*/
+
+/* 23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}. */
+
+
+
+
+
+/* ====================================================================================================*/
+
+/* 24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }. */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====================================================================================================*/
+
+/* 25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true]. */
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====================================================================================================*/
+
+/* 26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
+ */
+
+
+
+
+
+
+
+
+
+
+
+/* ====================================================================================================*/
+
+/* 27) Programa una clase llamada Pelicula.
+
+La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
+  - Todos los datos del objeto son obligatorios.
+  - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
+     7 restantes números.
+  - Valida que el título no rebase los 100 caracteres.
+  - Valida que el director no rebase los 50 caracteres.
+  - Valida que el año de estreno sea un número entero de 4 dígitos.
+  - Valida que el país o paises sea introducidos en forma de arreglo.
+  - Valida que los géneros sean introducidos en forma de arreglo.
+  - Valida que los géneros introducidos esten dentro de los géneros 
+     aceptados*.
+  - Crea un método estático que devuelva los géneros aceptados*.
+  - Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
+    decimal de una posición.
+  - Crea un método que devuelva toda la ficha técnica de la película.
+  - Apartir de un arreglo con la información de 3 películas genera 3 
+    instancias de la clase de forma automatizada e imprime la ficha técnica 
+    de cada película.
+
+* Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
+ */
+
