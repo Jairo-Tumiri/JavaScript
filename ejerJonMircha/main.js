@@ -485,39 +485,90 @@ eliminar("Lorem Ipsum is simply dummy text of the printing and typesetting indus
 
 /* 18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5. */
 
+// const cadenaString = (string = "") => {
+
+//   let a = 0, b = 0;
+//   // console.log(element);
+//   string.toLowerCase().split("").forEach(element => {
+//     // (["a","e","i","o","u"].includes(element) === true)
+//     // ? a++
+//     // : ([" ",",",".",":",";"].includes(element) === true)
+//     // ? console.log(element)
+//     // : b++
+//     if (/[aeiouáéíóúü]/.test(element)) a++;
+//     if (/[bcdfghjklmnnpqrstvwxyz]/.test(element)) b++;
+//   })
+
+//   return console.log(`numero de vocales es ${a} y numero de consonantes es ${b}`)
+// }
+
+// cadenaString("Hola Mundo")
 
 
 
+// const contarLetras = (cadena = "") => {
+//   if (!cadena) return console.warn("No ingresaste una cadena de texto");
+//   if (typeof cadena !== "string") return console.error(`El valor "${cadena} ingresado, NO es una
+//   cadena de texto`);
 
+//   let vocales = 0, consonantes = 0;
 
+//   cadena = cadena.toLocaleLowerCase();
+//   for (let letra of cadena) {
+//     if (/[aeiouáéíóúü]/.test(letra)) vocales++;
+//     if (/[bcdfghjklmnnpqrstvwxyz]/.test(letra)) consonantes++;
+//   }
 
+//   return console.log({
+//     cadena,
+//     vocales,
+//     consonantes
+//   })
+// }
 
+// contarLetras("HOLA CHICOS COMO ESTAN")
 
 
 /* ====================================================================================================*/
 
-/* 19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero. */
+/* 19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá 
+verdadero. */
 
+// const validarNombre = (nombre = "") => {
+//   if (!nombre) return console.warn("No ingresaste una cadena de texto");
+//   if (typeof nombre !== "string") return console.error(`El valor "${nombre} ingresado, NO es una
+//   cadena de texto`);
 
+//   let expresionRegular = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/g.test(nombre);
 
+//   return console.log((expresionRegular) 
+//           ? `${nombre}, SI es un nombre`  
+//           : `${nombre}, No es un nombre`  
+//         )
+// }
 
-
-
-
-
-
-
-
-
-
-
-
+// validarNombre("Jhon Jairo")
 
 
 
 /* ====================================================================================================*/
 
 /* 20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero. */
+
+// const validarCorreo = (correo = "") => {
+//   if (!correo) return console.warn("No ingresaste una cadena de texto");
+//   if (typeof correo !== "string") return console.error(`El valor "${correo} ingresado, NO es una
+//   cadena de texto`);
+
+//   let expresionRegular = /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(correo);
+
+//   return console.log((expresionRegular) 
+//           ? `${correo}, SI es un correo`  
+//           : `${correo}, No es un correo`  
+//         )
+// }
+
+// validarCorreo("jhon.jairo.tumiri@gmail.com")
 
 
 
@@ -528,7 +579,44 @@ eliminar("Lorem Ipsum is simply dummy text of the printing and typesetting indus
 
 /* 21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25]. */
 
+// const numerico = (array) =>{
+//   if (!array) return console.warn("el array esta vacio");
+//   if (!(Array.isArray(array))) return console.warn("ESTO NO ES UN ARRAY"); 
 
+//   let cuadrado = array.map(e => Math.pow(e,2))
+
+//   return console.log(cuadrado,array)
+// }
+// numerico([1231231,12,3,123,1,123,1])
+// numerico([1, 4, 5])
+
+
+
+
+
+/* // RESUELTO JONMIRCHA 
+
+const devolverCuadrados = (arr = undefined) => {
+  if (arr === undefined) return console.warn("No ingresaste un arreglo de números");
+  if (!(arr instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+  if (arr.length === 0) return console.error("El arreglo esta vacío");
+  
+  for (let num of arr) {
+    if (typeof num !== "number") return console.error(`El valor ${num} ingresado, NO es un número`)
+  }
+
+  const newArr = arr.map(el => el*el);
+  return console.info(`Arreglo original: ${arr},\nArreglo elevado al cuadrado: ${newArr}·`)
+
+}
+
+devolverCuadrados();
+devolverCuadrados(true);
+devolverCuadrados({});
+devolverCuadrados([]);
+devolverCuadrados([1, "3", 4, {}]);
+devolverCuadrados([1, 4, {}]);
+devolverCuadrados([12,3,12,3,23,32,1,2]) */
 
 
 
@@ -539,18 +627,45 @@ eliminar("Lorem Ipsum is simply dummy text of the printing and typesetting indus
 
 /* 22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60]. */
 
+// const numaltoBajo = (array = undefined) => {
+//   if (!array) return console.warn("el array esta vacio");
+//   if (!(Array.isArray(array))) return console.warn("ESTO NO ES UN ARRAY");
+
+//   let min = 0, may = 0, c = 0
+//   array.map(e => {
+//     if (e < min) min = e;
+//     if (c < e) may = e;
+//     c = e
+//   })
+//   return console.log(`El menor es ${min}, el mayor es ${may}`)
+// }
+
+// numaltoBajo()
+// numaltoBajo([1, 4, 5, 99, -60])
+// numaltoBajo([-1, 1, 4, 5, 99, 60])
+// numaltoBajo(2)
 
 
 
+/* // RESUELTO JONMIRCHA
 
+const arrayMinMax = (arr = undefined) => {
+  if (arr === undefined) return console.warn("No ingresaste un arreglo de números");
+  if (!(arr instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+  if (arr.length === 0) return console.error("El arreglo esta vacío");
+  for (let num of arr) {
+    if (typeof num !== "number") return console.error(`El valor ${num} ingresado, NO es un número`)
+  }
+  return console.info(`arreglo original: ${arr}
+                      \nValor mayor: ${Math.max(...arr)}
+                      \nValor menor: ${Math.min(...arr)}`)
+}
 
-
-
-
-
-
-
-
+arrayMinMax()
+arrayMinMax(false)
+arrayMinMax([])
+arrayMinMax([12,3,3,2,1,123,-23])
+ */
 
 
 
@@ -559,7 +674,42 @@ eliminar("Lorem Ipsum is simply dummy text of the printing and typesetting indus
 /* 23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}. */
 
 
+// const parImpares = (array = undefined) =>{
+//   if(!array) return console.warn("el array esta vacio")
+//   if(!(Array.isArray(array))) return console.error("ESTO NO ES UN ARRAY")
 
+//   let par = [], impar = [];
+//   for (let i = 0; i < array.length; i++) {
+//     if((array[i]%2) === 0) par[i] = array[i]
+//     if((array[i]%2) !== 0) impar[i] = array[i]
+//   }
+// par = par.join("").split("")
+// impar = impar.join("").split("")
+
+//   return console.info({par, impar})
+// } 
+// parImpares()
+// parImpares(1)
+// parImpares([1,2,3,4,5,6,7,8,9,0])
+
+
+/* // RESUELTO JONMIRCHA 
+
+const arrayParImpar = (arr = undefined) => {
+  if (arr === undefined) return console.warn("No ingresaste un arreglo de números");
+  if (!(arr instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+  if (arr.length === 0) return console.error("El arreglo esta vacío");
+  for (let num of arr) {
+    if (typeof num !== "number") return console.error(`El valor ${num} ingresado, NO es un número`)
+  }
+  return console.info({
+    par: arr.filter(num => num % 2 === 0),
+    impar: arr.filter(num => num % 2 !== 0)
+  })
+}
+
+arrayParImpar()
+arrayParImpar([1,2,3,4,5,6,7,8,9,0]) */
 
 
 /* ====================================================================================================*/
@@ -567,16 +717,46 @@ eliminar("Lorem Ipsum is simply dummy text of the printing and typesetting indus
 /* 24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }. */
 
 
+// const orden = (array = undefined) => {
+//   if (!array) return console.warn("ESTO ESTA VACIO")
+//   if (!(Array.isArray(array))) return console.error("ESTO NO ES UN ARRAY")
+//   let men = array.sort()
+//   let i = (array.length - 1);
+//   let may = [];
+
+//   for (const valor of men) {
+//     may[i] = valor
+//     i--
+//   }
+
+//   return console.log(
+//     {
+//       menorMayor: men,
+//       mayorMenor: may
+//     })
+// }
+
+// orden([7, 5, 7, 8, 6])
 
 
+/* // RESUELTO JONMIRCHA 
 
+const arrayOrdenar = (arr = undefined) => {
+  if (arr === undefined) return console.warn("No ingresaste un arreglo de números");
+  if (!(arr instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+  if (arr.length === 0) return console.error("El arreglo esta vacío");
+  for (let num of arr) {
+    if (typeof num !== "number") return console.error(`El valor ${num} ingresado, NO es un número`)
+  }
 
+  return console.info({
+    arr,
+    asc: arr.map(e => e).sort(),
+    des: arr.map(e => e).sort().reverse()
+  })
+}
 
-
-
-
-
-
+arrayOrdenar([7, 5, 7, 8, 6]) */
 
 
 /* ====================================================================================================*/
@@ -584,6 +764,23 @@ eliminar("Lorem Ipsum is simply dummy text of the printing and typesetting indus
 /* 25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true]. */
 
 
+
+// const duplicados = (array = undefined) => {
+//   if(!array) return console.log("EL ARRAY ESTA VACIO")
+
+//   let array2 = [], iterador = 0;
+
+//   for (let i = 0; i < array.length; i++) {
+//     console.log(array2[iterador])
+//     console.log(array[i])
+//     iterador++
+//   }
+
+//   return console.log(array2)
+// }
+
+
+// duplicados(["x", 10, "x", 2, "10", 10, true, true])
 
 
 
@@ -599,13 +796,20 @@ eliminar("Lorem Ipsum is simply dummy text of the printing and typesetting indus
 /* 26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
  */
 
+  // const promedio = (array = undefined) => {
+  //   if(!array) return console.warn("ESTO ESTA VACIO")
+  //   let a = 0
+  //   array.forEach(e => a += e);
+  //   let b = a/array.length
+  //   return (!(isNaN(b)))
+  //           ? console.log(b)
+  //           : console.error("EN EL CONTENDI ODEL ARRAY NO HABIA SOLO NUMEROS")
+  // }
 
 
+  // promedio([9,8,7,6,5,4,3,2,1,0])
 
-
-
-
-
+  // promedio([9,8,3,24])
 
 
 
