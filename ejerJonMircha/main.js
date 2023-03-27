@@ -764,31 +764,41 @@ arrayOrdenar([7, 5, 7, 8, 6]) */
 /* 25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true]. */
 
 
+/* // RESUELTO JONMIRCHA 
 
-// const duplicados = (array = undefined) => {
-//   if(!array) return console.log("EL ARRAY ESTA VACIO")
+const arrayDuplicados = (arr = undefined) => {
+  if (arr === undefined) return console.warn("No ingresaste un arreglo de números");
+  if (!(arr instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+  if (arr.length === 0) return console.error("El arreglo esta vacío");
+  if (arr.length === 1) return console.error("El arreglo debe tener al menos 2 valores");
 
-//   let array2 = [], iterador = 0;
+  return console.info({
+    original: arr,
+    sinDuplicar: arr.filter((value,index,self) => self.indexOf(value) === index)
+  })
+}
 
-//   for (let i = 0; i < array.length; i++) {
-//     console.log(array2[iterador])
-//     console.log(array[i])
-//     iterador++
-//   }
-
-//   return console.log(array2)
-// }
-
-
-// duplicados(["x", 10, "x", 2, "10", 10, true, true])
-
-
-
+arrayDuplicados()
+arrayDuplicados({})
+arrayDuplicados([])
+arrayDuplicados(["x", 10, "x", 2, "10", 10, true, true]) */
 
 
+/* // RESUELTO JONMIRCHA 
 
+const arrayDuplicados = (arr = undefined) => {
+  if (arr === undefined) return console.warn("No ingresaste un arreglo de números");
+  if (!(arr instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+  if (arr.length === 0) return console.error("El arreglo esta vacío");
+  if (arr.length === 1) return console.error("El arreglo debe tener al menos 2 valores");
 
+  return console.info({
+    original: arr,
+    sinDuplicar: [...new Set(arr)]
+  })
+}
 
+arrayDuplicados(["x", 10, "x", 2, "10", 10, true, true]) */
 
 
 /* ====================================================================================================*/
@@ -796,20 +806,45 @@ arrayOrdenar([7, 5, 7, 8, 6]) */
 /* 26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
  */
 
-  // const promedio = (array = undefined) => {
-  //   if(!array) return console.warn("ESTO ESTA VACIO")
-  //   let a = 0
-  //   array.forEach(e => a += e);
-  //   let b = a/array.length
-  //   return (!(isNaN(b)))
-  //           ? console.log(b)
-  //           : console.error("EN EL CONTENDI ODEL ARRAY NO HABIA SOLO NUMEROS")
-  // }
+// const promedio = (array = undefined) => {
+//   if(!array) return console.warn("ESTO ESTA VACIO")
+//   let a = 0
+//   array.forEach(e => a += e);
+//   let b = a/array.length
+//   return (!(isNaN(b)))
+//           ? console.log(b)
+//           : console.error("EN EL CONTENDI ODEL ARRAY NO HABIA SOLO NUMEROS")
+// }
 
 
-  // promedio([9,8,7,6,5,4,3,2,1,0])
+// promedio([9,8,7,6,5,4,3,2,1,0])
 
-  // promedio([9,8,3,24])
+// promedio([9,8,3,24])
+
+
+// RESUELTO JONMIRCHA 
+
+// const arrayPromedio = (arr = undefined) => {
+//   if (arr === undefined) return console.warn("No ingresaste un arreglo de números");
+//   if (!(arr instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+//   if (arr.length === 0) return console.error("El arreglo esta vacío");
+//   for (let num of arr) {
+//     if (typeof num !== "number") return console.error(`El valor ${num} ingresado, NO es un número`)
+//   }
+
+//   return console.info(
+//     arr.reduce((total,num, index, arr) =>{
+//       total += num
+//       if(index === (arr.length-1)){
+//         return `El promedio de ${arr.join(" + ")} es ${total / arr.length}`
+//       }else{
+//         return total
+//       }
+//     })
+//   )
+// } 
+
+// arrayPromedio([9,8,3,24])
 
 
 
@@ -829,6 +864,7 @@ La clase recibirá un objeto al momento de instanciarse con los siguentes datos:
   - Valida que los géneros introducidos esten dentro de los géneros 
      aceptados*.
   - Crea un método estático que devuelva los géneros aceptados*.
+
   - Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
     decimal de una posición.
   - Crea un método que devuelva toda la ficha técnica de la película.
@@ -839,3 +875,195 @@ La clase recibirá un objeto al momento de instanciarse con los siguentes datos:
 * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
  */
 
+
+class pelicula {
+
+  constructor({ idPelicula, titulo, director, anioEstreno, pais, genero, calificaciones }) {
+
+    this.idPelicula = idPelicula,
+      this.titulo = titulo,
+      this.director = director,
+      this.anioEstreno = anioEstreno,
+      this.pais = pais,
+      this.genero = genero,
+      this.calificaciones = calificaciones
+
+    this.validacionId(idPelicula, titulo)
+    this.validacionTitulo(titulo)
+    this.validacionDirector(director, titulo)
+    this.validacionAñoEstreno(anioEstreno, titulo)
+    this.validacionPaises(pais, titulo)
+    this.validacionGeneros(genero, titulo)
+    this.validacionCalificacion(calificaciones, titulo)
+  }
+
+  generosAceptdos(){
+    let generos = "Action,Adult,Adventure,Animation,Biography,Comedy,Crime,Documentary,Drama,Family,Fantasy,Film,Noir,Game-Show,History,Horror,Musical,Music,Mystery,News,Reality-TV,Romance,SciFi,Short,Sport,Talk-Show,Thriller,War,Western".split(",")
+    let i = 1;
+    console.info(`=========== GENEROS ACEPTADOS SON: =========`)
+    for (const iterator of generos) {
+      console.log(`${i}) ${iterator}`)
+      i++
+    }
+    
+  }
+
+  validarArray(concepto, valor, titulo,complemento = undefined) {
+    if (typeof valor !== "string") return false;
+    for (let ite of valor.split(",")) {
+      if (/^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s.]+$/g.test(ite) === false) return console.error(`"${ite}" no es un nombre de ${concepto} valido en "${titulo}"`)
+    }
+    if(complemento !== undefined || valor === undefined){
+      for (let iterator of valor.split(",")) {
+        if(complemento.includes(iterator) === false) {
+          console.error(`${iterator} No es un ${concepto} valido en ${titulo}`)
+          this.generosAceptdos()
+        }
+      }
+    }
+    return true
+  }
+
+  validarNumeros(concepto, valor, titulo, digitos) {
+    if(concepto === "calificacion"){
+        if(!(valor > 1 && valor < 10)){
+        console.error(`La ${concepto} tiene que ser en 1 y 10 , en ${titulo}`)
+      }
+    }
+    if (!valor) return console.error(`el ${concepto} esta vacio en ${titulo}`)
+    if (isNaN(valor)) return console.error(` ${concepto} "${valor}" en "${titulo}" , ${concepto} NO ES UN NUMERO`)
+    if ((Math.trunc(valor).toString().length > digitos)) return console.error(`${valor}; ${concepto} de "${titulo}" no puede pasar los ${digitos} digitos`)
+
+
+    return true
+  }
+  
+  validarCadena(concepto, valor, titulo, longitud) {
+    if (!valor) return console.error(`${concepto}, esta vacio de la pelicula ${titulo}`)
+    if (typeof valor !== "string") return console.error(`${concepto} "${valor}", No es un string en ${titulo}`)
+    if (valor.length > longitud ) return console.error(`"${valor}" ; el ${concepto} no pueden tener mas de ${longitud} caracteres`)
+
+    return true
+  }
+
+  validacionId(idPelicula, titulo) {
+    if (this.validarCadena("id de la Pelicula", idPelicula, titulo)) {
+      if (!(/^([a-z]){2}([0-9]){7,8}$/.test(idPelicula))) {
+        console.error(`"${idPelicula}" de ${titulo}, No es un id correspondiente`)
+      }
+    }
+  }
+
+  validacionTitulo(titulo) {
+    this.validarCadena("Titulo", titulo, titulo, 100)
+    return true
+  }
+
+  validacionDirector(director, titulo) {
+    this.validarCadena("Director", director, titulo, 50)
+    this.validarArray("Director", director, titulo)
+    return true
+  }
+
+  validacionAñoEstreno(anioEstreno, titulo) {
+    this.validarNumeros("año de estreno", anioEstreno, titulo, 4)
+    return true
+  }
+  validacionPaises(pais, titulo) {
+    this.validarArray("Pais", pais, titulo)
+    return true
+  }
+
+  validacionGeneros(genero, titulo) {
+    let generos = "Action,Adult,Adventure,Animation,Biography,Comedy,Crime,Documentary,Drama,Family,Fantasy,Film,Noir,Game-Show,History,Horror,Musical,Music,Mystery,News,Reality-TV,Romance,SciFi,Short,Sport,Talk-Show,Thriller,War,Western".split(",")
+    this.validarCadena("genero", genero, titulo)
+    this.validarArray("genero", genero, titulo, generos)
+    return true
+  }
+
+  validacionCalificacion(calificaciones,titulo){
+    this.validarNumeros("calificacion", calificaciones, titulo, 2)
+    return true
+  }
+
+  fichaTecnica(){console.info(`    titulo: ${this.titulo}
+    director: ${this.director}
+    anioEstreno: ${this.anioEstreno}
+    pais: ${this.pais}
+    genero: ${this.genero}
+    calificacion: ${this.calificaciones}`)
+  }
+
+}
+
+
+
+/* const TheLastOfUs = new pelicula({
+  idPelicula: "tt3581920",
+  titulo: "The Last of Us",
+  director: "Neil Druckma,Craig mazin",
+  anioEstreno: 2022,
+  pais: "indonesia",
+  genero: "Action,Adventure,Drama,Horror,SciFi",
+  calificaciones: 8.9
+})
+const CreedIII = new pelicula({
+  idPelicula: "tt11145118",
+  titulo: "Creed III",
+  director: "Michael B. Jordan,Zach Beyl,Ryan Coogler",
+  anioEstreno: 2023,
+  pais: "Estados Unidos",
+  genero: "Drama,Sport",
+  calificaciones: 7.3
+})
+const titanic = new pelicula({
+  idPelicula: "tt11145118",
+  titulo: "titanic",
+  director: "Jhon Beyl,Ryan Coogler",
+  anioEstreno: 1990,
+  pais: "Estados Unidos",
+  genero: "Drama",
+  calificaciones: 2.3
+}) */
+
+
+const misPelis = [{
+  idPelicula: "tt3581920",
+  titulo: "The Last of Us",
+  director: "Neil Druckma,Craig mazin",
+  anioEstreno: 2022,
+  pais: "indonesia",
+  genero: "Action,Adventure,Drama,Horror,SciFi",
+  calificaciones: 8.9
+},
+{
+  idPelicula: "tt11145118",
+  titulo: "Creed III",
+  director: "Michael B. Jordan,Zach Beyl,Ryan Coogler",
+  anioEstreno: 2023,
+  pais: "Estados Unidos",
+  genero: "Drama,Sport",
+  calificaciones: 7.3
+},
+{
+  idPelicula: "tt11145118",
+  titulo: "titanic",
+  director: "Jhon Beyl,Ryan Coogler",
+  anioEstreno: 1990,
+  pais: "Estados Unidos",
+  genero: "Drama",
+  calificaciones: 2.3
+}
+]
+
+misPelis.push({
+  idPelicula: "tt11145118",
+  titulo: "citanic",
+  director: "Jhon Beyl,Ryan Coogler",
+  anioEstreno: 1990,
+  pais: "Estados Unidos",
+  genero: "Drama",
+  calificaciones: 2.3
+})
+
+misPelis.forEach(e => new pelicula(e).fichaTecnica())
