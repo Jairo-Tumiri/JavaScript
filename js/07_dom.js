@@ -47,10 +47,11 @@ document.write("<h2>Hola Mundo desde el DOM</h2>"); */
 /* console.log(document.getElementsByTagName("li"));
 console.log(document.getElementsByClassName("card"));
 console.log(document.getElementsByName("nombre"));
-console.log(document.getElementById("menu"));
-console.log(document.querySelector("#menu"));
+
+console.log(document.getElementById("menu"));   //Selector para id
+console.log(document.querySelector("#menu"));   //Selector para clases
 console.log(document.querySelector("a"));
-console.log(document.querySelectorAll("a"));
+console.log(document.querySelectorAll("a"));    //Selector para llamar a todos loque tengan esa etiqueta
 console.log(document.querySelectorAll("a").length);
 document.querySelectorAll("a").forEach((el) => console.log(el));
 console.log(document.querySelector(".card"));
@@ -666,3 +667,4 @@ console.log(navigator.serviceWorker);
 console.log(navigator.storage);
 console.log(navigator.usb);
 console.log(navigator.userAgent); */
+

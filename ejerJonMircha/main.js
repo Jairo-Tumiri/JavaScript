@@ -1027,43 +1027,56 @@ const titanic = new pelicula({
 }) */
 
 
-const misPelis = [{
-  idPelicula: "tt3581920",
-  titulo: "The Last of Us",
-  director: "Neil Druckma,Craig mazin",
-  anioEstreno: 2022,
-  pais: "indonesia",
-  genero: "Action,Adventure,Drama,Horror,SciFi",
-  calificaciones: 8.9
-},
-{
-  idPelicula: "tt11145118",
-  titulo: "Creed III",
-  director: "Michael B. Jordan,Zach Beyl,Ryan Coogler",
-  anioEstreno: 2023,
-  pais: "Estados Unidos",
-  genero: "Drama,Sport",
-  calificaciones: 7.3
-},
-{
-  idPelicula: "tt11145118",
-  titulo: "titanic",
-  director: "Jhon Beyl,Ryan Coogler",
-  anioEstreno: 1990,
-  pais: "Estados Unidos",
-  genero: "Drama",
-  calificaciones: 2.3
-}
-]
+// const misPelis = [{
+//   idPelicula: "tt3581920",
+//   titulo: "The Last of Us",
+//   director: "Neil Druckma,Craig mazin",
+//   anioEstreno: 2022,
+//   pais: "indonesia",
+//   genero: "Action,Adventure,Drama,Horror,SciFi",
+//   calificaciones: 8.9
+// },
+// {
+//   idPelicula: "tt11145118",
+//   titulo: "Creed III",
+//   director: "Michael B. Jordan,Zach Beyl,Ryan Coogler",
+//   anioEstreno: 2023,
+//   pais: "Estados Unidos",
+//   genero: "Drama,Sport",
+//   calificaciones: 7.3
+// },
+// {
+//   idPelicula: "tt11145118",
+//   titulo: "titanic",
+//   director: "Jhon Beyl,Ryan Coogler",
+//   anioEstreno: 1990,
+//   pais: "Estados Unidos",
+//   genero: "Drama",
+//   calificaciones: 2.3
+// }
+// ]
 
-misPelis.push({
-  idPelicula: "tt11145118",
-  titulo: "citanic",
-  director: "Jhon Beyl,Ryan Coogler",
-  anioEstreno: 1990,
-  pais: "Estados Unidos",
-  genero: "Drama",
-  calificaciones: 2.3
-})
+// misPelis.push({
+//   idPelicula: "tt11145118",
+//   titulo: "citanic",
+//   director: "Jhon Beyl,Ryan Coogler",
+//   anioEstreno: 1990,
+//   pais: "Estados Unidos",
+//   genero: "Drama",
+//   calificaciones: 2.3
+// })
 
-misPelis.forEach(e => new pelicula(e).fichaTecnica())
+// misPelis.forEach(e => new pelicula(e).fichaTecnica())
+
+/* =========================================================================================== */
+/* ========================================================================================= */
+/* DOM DOM DOM DOM DOM DOM DOM DOM DOM DOM DOM DOM DOM DOM DOM DOM DOM DOM DOM DOM */
+
+let $reloj = document.querySelector(".reloj")
+
+// let soyjhon 
+setInterval(() => {
+  let soyjhon = new Date().toLocaleString();
+
+  $reloj.innerHTML = soyjhon
+}, 1000);
