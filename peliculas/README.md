@@ -10,3 +10,9 @@ Currently, two official plugins are available:
 -[@react-suite](https://rsuitejs.com/): libreria de componentes.
 https://www.npmjs.com/package/rsuite
 https://rsuitejs.com/components/overview/
+
+```install
+npm i rsuite
+```
+
+-[themoviedb-org](https://www.themoviedb.org/settings/api): API The Movie DB
