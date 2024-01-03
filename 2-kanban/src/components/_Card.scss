@@ -1,0 +1,12 @@
+.card {
+  padding: 30px;
+  background: #212121;
+  border-radius: 10px;
+  cursor: pointer;
+  &::selection {
+    background: none;
+  }
+  &::-moz-selection {
+    background: none;
+  }
+}

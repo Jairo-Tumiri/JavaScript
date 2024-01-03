@@ -1,0 +1,20 @@
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-color: #f67c55;
+  color: #e4e4e4;
+  line-height: 1.5;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+@import "./components/Header";
+@import "./components/Card";
+@import "./components/Kanbam";
