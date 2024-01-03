@@ -1,0 +1,60 @@
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background: url("https://i.pinimg.com/564x/1d/7f/f4/1d7ff47b079b4af246f9f0788262e3a4.jpg")
+    no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+* .mybtn {
+  text-align: center;
+  padding: 1rem 1rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  color: white;
+  background: #0a0001e6;
+  transition: all 300ms ease-in-out;
+  cursor: pointer;
+  &:hover {
+    background: #000000;
+  }
+}
+
+*.myinput {
+  background: transparent;
+  width: 250px;
+  padding: 1rem 1.5rem;
+  border: none;
+  outline: none;
+  border-radius: 5000px;
+  backdrop-filter: blur(5px);
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+/*COMPONENTS*/
+// @import "./components/Navbar/Navbar.scss";
+@import "./components/login/Login";
+@import "./components/signup/Signup";
+
+/*PAGES*/
+@import "./pages/Home";
+// @import "";
+// @import "";
+// @import "";
