@@ -1,0 +1,97 @@
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap";
+/*UTILIDADES*/
+@import "./utility/Utility";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  // overflow: hidden;
+  background: linear-gradient(
+      to right bottom,
+      #b1b3ff,
+      #9ea0fc,
+      #8b8df9,
+      #7779f5,
+      #6366f1
+    )
+    no-repeat fixed center;
+}
+
+.CURSOR {
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 9999;
+}
+
+.main-todos {
+  /*GRID COMO PINTEREST*/
+  padding: 0px 1rem;
+  width: 100%;
+  margin: 20px auto;
+  columns: 4;
+  column-gap: 0.75rem;
+
+  .box {
+    width: 100%;
+    margin-bottom: 10px;
+    break-inside: avoid;
+    /*GLOBAL*/
+    clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 0 100%);
+    display: flex;
+    position: relative;
+    background: #ffffff;
+    border-radius: 20px;
+    cursor: pointer;
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 30px;
+      height: 30px;
+      background-color: #e1e1f2;
+      top: 0;
+      right: 0;
+      border-bottom-left-radius: 20px;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .main-todos {
+    width: calc(100% - 40px);
+    columns: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-todos {
+    width: calc(100% - 40px);
+    columns: 2;
+  }
+}
+@media (max-width: 480px) {
+  .main-todos {
+    width: calc(100% - 40px);
+    columns: 1;
+  }
+}
+
+/*COMPONENTS*/
+@import "./components/header/Header";
+@import "./components/addTodo/AddTodo";
+@import "./components/todo/Todo";
+
+/*PAGES*/
+// @import "";
+// @import "";
+// @import "";
+// @import "";

@@ -1,0 +1,21 @@
+* .mybtn {
+  text-align: center;
+  width: 100%;
+  height: 2.5rem;
+  border-radius: 1rem;
+  background-color: #4d4df7;
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 250ms;
+  p {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  &:hover {
+    background-color: #3336f4;
+  }
+}
