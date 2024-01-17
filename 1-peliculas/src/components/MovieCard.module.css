@@ -1,0 +1,30 @@
+.movieCard {
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  list-style: none;
+  position: relative;
+  background-color: #111111;
+}
+.movieCard:hover {
+  opacity: 0.7;
+  transform: scale(1.05) translateY(-8px);
+  transition: 0.5s;
+}
+.movieCardCont {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.movieCardImg {
+  width: 100%;
+  height: 100%;
+  img {
+    width: 100%;
+  }
+}
+.movieCardTitle {
+  padding: 2px 5px;
+  font-size: 12px;
+}

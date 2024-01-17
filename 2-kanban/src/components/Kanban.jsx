@@ -1,5 +1,6 @@
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import Card from "./Card";
+import style from "./Kanban.module.css";
 
 export default function Kanban({ data, setData }) {
   const onDragEnd = (result) => {
@@ -39,18 +40,20 @@ export default function Kanban({ data, setData }) {
   };
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <div className="kanban">
+      <div className={style.kanban}>
         {data?.map((section) => {
           return (
             <Droppable key={section.id} droppableId={section.id}>
               {(droppableProvided) => (
                 <div
                   {...droppableProvided.droppableProps}
-                  className="kanban__section"
+                  className={style.kanbanSection}
                   ref={droppableProvided.innerRef}
                 >
-                  <div className="kanban__section__title">{section.title}</div>
-                  <div className="kanban__section__content">
+                  <div className={style.kanbanSectionTitle}>
+                    {section.title}
+                  </div>
+                  <div className={style.kanbanSectionContent}>
                     {section?.tasks?.map((task, index) => {
                       return (
                         <Draggable
@@ -64,10 +67,6 @@ export default function Kanban({ data, setData }) {
                               ref={draggableProvided.innerRef}
                               {...draggableProvided.draggableProps}
                               {...draggableProvided.dragHandleProps}
-                              // style={{
-                              //   ...provided.draggableProps.style,
-                              //   opacity: snapshot.isDragging ? "0.5" : "1",
-                              // }}
                             >
                               <Card>{task.title}</Card>
                             </div>

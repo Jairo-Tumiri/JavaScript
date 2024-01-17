@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import { get } from "../data/httpClient";
 import { useEffect, useState } from "react";
 import { getMovieImg } from "../utils/getMovieImg";
+import style from "./MovieDetails.module.css";
+
 export default function MovieDetails() {
   const { movieid } = useParams();
   const [movie, setMovie] = useState(null);
@@ -15,11 +17,11 @@ export default function MovieDetails() {
   }, [movieid]);
 
   return (
-    <div className="moviedetails">
-      <div className="moviedetails-carucel">
+    <div className={style.movieDetails}>
+      <div className={style.movieDetailsCarucel}>
         <img src={imgeUrl} alt={`imagen de ${movie?.title}`} />
       </div>
-      <div className="moviedetails-info">
+      <div className={style.movieDetailsInfo}>
         <h2>
           <strong>Titulo:</strong> {movie?.title}
         </h2>

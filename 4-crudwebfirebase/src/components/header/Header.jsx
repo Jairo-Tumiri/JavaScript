@@ -5,10 +5,8 @@ import IconVideo from "../icons/IconVideo";
 import IconImage from "../icons/IconImage";
 import HeaderLi from "./HeaderLi";
 
-export default function Header({ handleClose, setAddTypeTodo, setData, data }) {
-  const [activeClass, setActiveClass] = useState("");
+export default function Header({ handleClose, setAddTypeTodo, setData }) {
   const handleClick = (e) => {
-    setActiveClass(e);
     setAddTypeTodo(e);
     setData({});
     handleClose();

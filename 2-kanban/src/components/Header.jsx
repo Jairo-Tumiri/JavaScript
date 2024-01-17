@@ -1,4 +1,5 @@
 import { useState } from "react";
+import style from "./Header.module.css";
 export default function Header({ data, setData }) {
   const [estado, setEstado] = useState(false);
   const [optionTitle, setOptionTitle] = useState({ title: "Estado de tarea" });
@@ -30,38 +31,38 @@ export default function Header({ data, setData }) {
 
   return (
     <>
-      <header className="header">
-        <h1 className="header-title">Kanban UI</h1>
-        <div className="container">
+      <header className={style.header}>
+        <h1 className={style.headerTitle}>Kanban UI</h1>
+        <div className={style.container}>
           <div className="container__item">
             <form
-              className="form"
+              className={style.form}
               onChange={(e) => {
                 e.preventDefault();
               }}
             >
-              <div className="form-input">
+              <div className={style.formInput}>
                 <input
                   type="text"
                   name="title"
-                  className="form__field"
+                  className={style.formField}
                   placeholder="Escribe tu tarea"
                   onChange={handleForm}
                 />
                 <button
                   type="button"
-                  className="btn btn--primary btn--inside uppercase"
+                  className={style.btn}
                   onClick={handlePush}
                 >
                   AGREGAR
                 </button>
               </div>
 
-              <div className="select--option" onClick={handleSelect}>
-                <span className="select">
+              <div className={style.selectOption} onClick={handleSelect}>
+                <span className={style.select}>
                   <p>{optionTitle.title}</p>
                 </span>
-                <ul className={estado ? "on" : "off"}>
+                <ul className={estado ? style.on : style.off}>
                   {data.map((option) => {
                     return (
                       <li key={option.id} onClick={handleOption}>

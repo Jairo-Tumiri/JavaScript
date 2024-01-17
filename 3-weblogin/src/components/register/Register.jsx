@@ -1,17 +1,16 @@
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../../firebase";
+import { auth } from "../../config/firebase";
 import InputControl from "../inputControl/InputControl";
-
-export default function SignUp() {
+import "./Register.scss";
+export default function Register() {
   const navigate = useNavigate();
   const [values, setValues] = useState({ name: "", email: "", password: "" });
   const [errorMsg, setErrorMsg] = useState([]);
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
   const registro = () => {
-    // console.log(values.name, values.email, values.password);
     console.log(errorMsg);
     if (!values.name || !values.email || !values.password) {
       setErrorMsg("Todos los campos son obligatorios");
@@ -93,7 +92,7 @@ export default function SignUp() {
             Registar
           </button>
         </div>
-        <Link to="/login">
+        <Link to="/">
           ya tengo cuenta <strong>iniciar sesion</strong>
         </Link>
       </form>

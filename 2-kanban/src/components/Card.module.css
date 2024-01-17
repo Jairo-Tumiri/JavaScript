@@ -3,10 +3,10 @@
   background: #212121;
   border-radius: 10px;
   cursor: pointer;
-  &::selection {
-    background: none;
-  }
-  &::-moz-selection {
-    background: none;
-  }
+}
+.card::selection {
+  background: none;
+}
+.card::-moz-selection {
+  background: none;
 }
