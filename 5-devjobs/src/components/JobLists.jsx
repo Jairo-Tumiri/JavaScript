@@ -48,14 +48,14 @@ export default function JobLists() {
                 }}
               />
               <button onClick={locationSearchHandler}>
-                Buscar por ubicacion
+                Buscar
               </button>
             </div>
             <div className="searchPanel03">
-                <select onChange={filterJobData}>
-                    <option value="full-time">Full Time</option>
-                    <option value="contract">Contract</option>
-                </select>
+              <select onChange={filterJobData}>
+                <option value="full-time">Full Time</option>
+                <option value="contract">Contract</option>
+              </select>
             </div>
           </div>
           <div className="jobWrapper">
@@ -72,21 +72,26 @@ export default function JobLists() {
               })
               .map((job) => {
                 return (
-                  <div className="jobItem" key={job.id}>
-                    <img src={job.logo} alt="" />
+                  <Link
+                    className="jobItem"
+                    to={`/jobs/${job.position}`}
+                    key={job.id}
+                  >
+                    <picture className="jobImage">
+                      <img src={job.logo} alt="" />
+                    </picture>
                     <div className="jobContent">
-                      <h6>
-                        {job.postedAt}-{job.contract}
-                      </h6>
-                      <h2>
-                        <Link to={`/jobs/${job.position}`}>{job.position}</Link>
-                      </h2>
-                      <p>{job.company}</p>
-                      <div className="location">
-                        <p>location: {job.location}</p>
+                      <div>
+                        <h2 className="jobTitle">{job.position}</h2>
+                        <h6 className="jobType">
+                          {job.postedAt} - {job.contract}
+                        </h6>
                       </div>
+                      <p className="jobLocation">
+                        location: <span>{job.location}</span>
+                      </p>
                     </div>
-                  </div>
+                  </Link>
                 );
               })}
           </div>

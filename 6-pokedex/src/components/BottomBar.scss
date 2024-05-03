@@ -1,0 +1,26 @@
+.bottom {
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  background-color: #023;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 30px;
+  padding-right: 50px;
+  &Btn {
+    display: flex;
+    gap: 15px;
+    color: #fff;
+    cursor: pointer;
+  }
+  .bgCircleWhite {
+    background-color: #fff;
+    border-radius: 50%;
+    // width: 60px;
+    // height: 60px;
+    padding: 0 5px;
+    color: #000;
+  }
+}

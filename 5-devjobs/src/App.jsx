@@ -1,5 +1,5 @@
 import Header from "./components/header"
-import MyRoutes from "./routers/MyRoutes"
+import MyRoutes from "./routers/routes"
 import "./App.scss"
 export default function App() {
   return (

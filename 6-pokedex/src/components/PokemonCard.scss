@@ -1,0 +1,84 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.show {
+  overflow: hidden;
+  border: #1d1d1d 1px solid;
+  border-radius: 25px;
+  transition: all 300ms ease-in-out;
+  width: 350px;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 25%;
+  transform: translate(-75%, -50%);
+  div {
+    width: 100%;
+    display: flex;
+  }
+}
+.statContainerTitle {
+  padding: 5px 20px;
+  font-weight: 900;
+  color: #fff;
+  background: linear-gradient(120deg, #ff8349 55%, #1d1d1d 55%);
+}
+.statContainerStats {
+  flex-direction: column;
+  p {
+    width: 50%;
+    text-align: center;
+  }
+}
+.statContainerStats{
+  background-color: #8f8f8f;
+  .statContainer{
+    p{
+      font-weight: 800;
+      padding: 5px 0px;
+    }
+    p:first-child{
+      background-color: #575757;
+    }
+  }
+}
+.statContainerAttack {
+  display: flex;
+  text-align: center;
+  background-color: rgb(26, 26, 26);
+  .statContainerAttackName,
+  .statContainerAttackNum {
+    display: flex;
+    flex-direction: column;
+    p{
+      font-weight: 800;
+      color: #fff;
+      padding: 5px 0px;
+    }
+  }
+}
+.right {
+  font-weight: 800;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  &:hover {
+    background: linear-gradient(120deg, #ff8349 35%, #1d1d1d 23%);
+    font-weight: 800;
+    border-radius: 50px;
+    img[alt="pokeball"] {
+      filter: invert(1);
+    }
+    p {
+      color: #fff;
+    }
+  }
+}
