@@ -15,7 +15,9 @@ export default function JobLists() {
   };
   const filterJobData = (e) => {
     const filterValue = e.target.value;
-    if (filterValue === "full-time") {
+    if (filterValue === "") {
+      setJobdata(jobs);
+    }else if (filterValue === "full-time") {
       const filterdData = jobs.filter((job) => job.contract === "Full Time");
       setJobdata(filterdData);
     } else if (filterValue === "contract") {
@@ -53,6 +55,7 @@ export default function JobLists() {
             </div>
             <div className="searchPanel03">
               <select onChange={filterJobData}>
+                <option value="">Filter by contract</option>
                 <option value="full-time">Full Time</option>
                 <option value="contract">Contract</option>
               </select>
